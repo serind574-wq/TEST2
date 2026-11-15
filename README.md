@@ -165,3 +165,69 @@ Create:
 - Do not deploy to mainnet automatically.
 
 First produce the architecture, integration compatibility report, and implementation plan. Do not generate the entire codebase before validating the protocol interfaces.
+
+
+
+
+solana-atomic-engine/
+│
+├── programs/
+│   └── atomic_engine/
+│       └── src/
+│           ├── lib.rs
+│           ├── state/
+│           │   ├── config.rs
+│           │   ├── engine_state.rs
+│           │   └── position.rs
+│           │
+│           ├── instructions/
+│           │   ├── initialize.rs
+│           │   ├── execute_engine_a.rs
+│           │   ├── execute_engine_b.rs
+│           │   ├── close_position.rs
+│           │   └── update_config.rs
+│           │
+│           ├── integrations/
+│           │   ├── jupiter_flashloan.rs
+│           │   ├── jupiter_earn.rs
+│           │   ├── jupiter_borrow.rs
+│           │   └── manifest.rs
+│           │
+│           ├── execution/
+│           │   ├── settlement.rs
+│           │   ├── profit.rs
+│           │   ├── validation.rs
+│           │   └── risk.rs
+│           │
+│           └── errors.rs
+│
+├── client/
+│   ├── src/
+│   │   ├── engine-a.ts
+│   │   ├── engine-b.ts
+│   │   ├── transaction-builder.ts
+│   │   ├── market-reader.ts
+│   │   └── account-resolver.ts
+│
+├── tests/
+│   ├── flashloan-cpi.ts
+│   ├── manifest-cpi.ts
+│   ├── jupiter-borrow.ts
+│   ├── engine-a.ts
+│   ├── engine-b.ts
+│   ├── atomicity.ts
+│   └── security.ts
+│
+├── config/
+│   ├── devnet.json
+│   └── mainnet.json
+│
+├── docs/
+│   ├── ARCHITECTURE.md
+│   ├── CPI_COMPATIBILITY.md
+│   ├── SECURITY.md
+│   └── DEPLOYMENT.md
+│
+├── Anchor.toml
+├── Cargo.toml
+└── README.md
